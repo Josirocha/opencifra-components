@@ -2,7 +2,6 @@ import { style, styleVariants } from "@vanilla-extract/css";
 
 export const pianoChordWrapper = style({
   display: "flex",
-  
 });
 export const octaveWrapper = style({
   background: "lightgray",
@@ -10,7 +9,7 @@ export const octaveWrapper = style({
   height: "60px",
   borderBottom: "2px solid #333",
 
-  position: "relative"
+  position: "relative",
 });
 
 //white
@@ -20,6 +19,10 @@ export const whiteKeyStyle = style({
   border: "1px solid #333",
   background: "#fff",
   borderBottom: "3px solid #333",
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'flex-end',
+  paddingBottom: '2px'
 });
 
 export const whitekeysBlockStyle = style({
@@ -31,13 +34,18 @@ export const whitekeysBlockStyle = style({
 export const blackKeyStyle = styleVariants({
   show: {
     height: "100%",
-    width: "8px",
+    width: "10px",
     background: "#333",
     borderBottom: "3px solid #000",
-},
-hide: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    paddingBottom: '2px',
+    position: 'relative'
+  },
+  hide: {
     height: 6,
-    width: "8px",
+    width: "10px",
   },
 });
 
@@ -47,5 +55,24 @@ export const blackKeysBlockStyle = style({
   width: "100%",
   position: "absolute",
   justifyContent: "space-around",
-  left: "-9px"
+  left: "-9px",
+});
+
+export const assignedBlackKeyStyle = style({
+  width: "10px",
+  height: "9px",
+  border: "1px solid #333",
+  backgroundColor: "white",
+  borderRadius: '5px',
+  position: 'absolute',
+  bottom: '2px'
+
+});
+
+export const assignedWhiteKeyStyle = style({
+  width: "8px",
+  height: "8px",
+  border: "1px solid #333",
+  backgroundColor: "#333",
+  borderRadius: '5px'
 });

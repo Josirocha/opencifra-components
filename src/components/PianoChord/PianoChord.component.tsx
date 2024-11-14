@@ -1,4 +1,7 @@
+import { BLACK_KEYS, WHITE_KEYS } from "./constants";
 import {
+  assignedBlackKeyStyle,
+  assignedWhiteKeyStyle,
   blackKeysBlockStyle,
   blackKeyStyle,
   octaveWrapper,
@@ -6,27 +9,33 @@ import {
   whitekeysBlockStyle,
   whiteKeyStyle,
 } from "./PianoChord.css";
+import { IPianoChordProps } from "./PianoChords.types";
+import { usePianoChord } from "./usePianoChord";
 
-const whiteKeys = new Array(7).fill(" ");
-const blackKeys = [0, 1, 1, 0, 1, 1, 1];
-const octaves = [1, 2];
+export const PianoChord = (props: IPianoChordProps) => {
+  const { octavesList, currentChord } = usePianoChord(props);
 
-export const PianoChord = () => {
   return (
     <div className={pianoChordWrapper}>
-      {octaves.map((octave) => (
+      {octavesList.map(() => (
         <div className={octaveWrapper}>
           <div className={blackKeysBlockStyle}>
-            {blackKeys.map((key) => (
-              <div
-                className={key == 1 ? blackKeyStyle.show : blackKeyStyle.hide}
-              ></div>
+            {BLACK_KEYS.map((key) => (
+              <div className={key ? blackKeyStyle.show : blackKeyStyle.hide}>
+                {currentChord?.some((i) => i === key) && (
+                  <div className={assignedBlackKeyStyle}></div>
+                )}
+              </div>
             ))}
           </div>
 
           <div className={whitekeysBlockStyle}>
-            {whiteKeys.map(() => (
-              <div className={whiteKeyStyle}></div>
+            {WHITE_KEYS.map((key) => (
+              <div className={whiteKeyStyle}>
+                {currentChord?.some((i) => i === key) && (
+                  <div className={assignedWhiteKeyStyle}></div>
+                )}
+              </div>
             ))}
           </div>
         </div>
