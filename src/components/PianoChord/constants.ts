@@ -11,6 +11,26 @@ const MAJOR_CHORDS = {
     B: [{ key: "B", octave: 0 }, { key: "D#", octave: 1 }, { key: "F#", octave: 1 }]
 }
 
+// const MINOR_CHORDS: Lista de acordes menores (minor chords).
+
+// const DOMINANT_SEVENTH_CHORDS: Lista de acordes com sétima dominante (dominant seventh chords).
+
+// const MINOR_SEVENTH_CHORDS: Lista de acordes com sétima menor (minor seventh chords).
+
+// const MAJOR_SEVENTH_CHORDS: Lista de acordes com sétima maior (major seventh chords).
+
+// const DIMINISHED_CHORDS: Lista de acordes diminutos (diminished chords).
+
+// const HALF_DIMINISHED_CHORDS: Lista de acordes meio-diminutos (half-diminished chords).
+
+// const AUGMENTED_CHORDS: Lista de acordes aumentados (augmented chords).
+
+// const FLAT_FIFTH_CHORDS: Lista de acordes com quinta bemol (flat fifth chords).
+
+// const SHARP_FIFTH_CHORDS: Lista de acordes com quinta aumentada (sharp fifth chords).
+
+// const SUSPENDED_CHORDS: Lista de acordes suspensos (suspended chords).
+
 export const CHORDS = {
     ...MAJOR_CHORDS,
 };
