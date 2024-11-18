@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { IPianoChordProps } from "./PianoChords.types";
 import { CHORDS } from "./constants";
 
@@ -15,8 +15,13 @@ export const usePianoChord = (props: IPianoChordProps) => {
         return CHORDS[chord]
     }, [chord])
 
+    const isAssigned = useCallback((key: string, octaveIndex: number) => {
+        return Boolean(currentChord?.some((i) => i.key === key && i.octave === octaveIndex))
+    }, [currentChord])
+
     return {
         octavesList,
-        currentChord
+        currentChord,
+        isAssigned
     };
 };
